@@ -102,16 +102,14 @@ function renderCart(){
       <button onclick="removeFromCart(${index})">Delete</button>
     </div>
   `).join('');
-  let totalPrice = 0
+  var totalPrice = 0
   let i  = 0
+  console.clear()
   cart.forEach(item => {
     totalPrice += parseInt(item.price)
-    total.innerHTML = totalPrice 
+    total.innerText = totalPrice
     console.log(`Product: ${item.name}, Price: ${item.price}`);
-
+    console.log("🚀 ~ file: app.js:113 ~ renderCart ~ item.price", item.price)
   })
 }
-cart.forEach((item) => {
-  console.log(`Product: ${item.name}, Price: ${item.price}`);
-});
 

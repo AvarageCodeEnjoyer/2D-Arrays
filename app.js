@@ -56,7 +56,8 @@ for(let i = 0; i < products.length; i++){
   let productsDiv = `
   <div class="items" id="${products[i].id}">
     <img src="${products[i].imgUrl}" alt="">
-    <h2>${products[i].name}</h2>
+    <h2>${products[i].name}, <br>
+    Price: ${products[i].price}</h2>
     <button onclick="addToCart(event)">
       Add to cart
     </button>
@@ -64,23 +65,6 @@ for(let i = 0; i < products.length; i++){
   `
   container.innerHTML += productsDiv
 }
-
-/* for(let i = 0; i > products.length; i++){
-  let button = document.getElementById(`${i}`)
-  button.addEventListener('click', () => {
-    cart.push(products[i])
-    console.log(cart[i])
-    console.log(cart.length)
-  })
-} */
-/* 
-let button = document.getElementById('0')
-button.addEventListener('click', () => {
-  cart.push(products[0])
-  console.log(cart[0])
-  console.log(cart.length)
-})
- */
 
 function addToCart(e){
   let itemIndex = parseInt(e.target.parentNode.id)
@@ -96,18 +80,20 @@ function removeFromCart(index){
 
 function renderCart(){
   cartDisplay.innerHTML = cart.map((item, index) => ` 
-    <div> 
+    <div class="items"> 
       <h2>${item.name}, ${item.price}$</h2> 
       <img src="${item.imgUrl}" alt="${item.name}">
       <button onclick="removeFromCart(${index})">Delete</button>
     </div>
   `).join('');
-  var totalPrice = 0
-  let i  = 0
+  let totalPrice = 0
   console.clear()
+  if(cart.length == 0){
+    total.textContent = `Total Price: ${totalPrice}`
+  }
   cart.forEach(item => {
     totalPrice += parseInt(item.price)
-    total.innerText = totalPrice
+    total.textContent = `Total Price: ${totalPrice}`
     console.log(`Product: ${item.name}, Price: ${item.price}`);
     console.log("🚀 ~ file: app.js:113 ~ renderCart ~ item.price", item.price)
   })

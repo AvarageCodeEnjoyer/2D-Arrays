@@ -57,7 +57,7 @@ for(let i = 0; i < products.length; i++){
   <div class="items" id="${products[i].id}">
     <img src="${products[i].imgUrl}" alt="">
     <h2>${products[i].name}, <br>
-    Price: ${products[i].price}</h2>
+    Price: ${products[i].price}$</h2>
     <button onclick="addToCart(event)">
       Add to cart
     </button>

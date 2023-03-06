@@ -94,8 +94,8 @@ function renderCart(){
   cart.forEach(item => {
     totalPrice += parseInt(item.price)
     total.textContent = `Total Price: ${totalPrice}`
-    console.log(`Product: ${item.name}, Price: ${item.price}`);
-    console.log("🚀 ~ file: app.js:113 ~ renderCart ~ item.price", item.price)
   })
+  console.table(cart)
+  console.log(`The Total Price Is ${totalPrice}$`)
 }
 
